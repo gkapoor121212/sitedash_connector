@@ -1,0 +1,7 @@
+name: Website Dashboard Connector
+type: module
+description: Provides functionality to integrate with website dashboard.
+core_version_requirement: ^8.8 || ^9
+dependencies:
+  - drupal:rest
+  - simple_oauth:simple_oauth

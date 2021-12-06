@@ -1,0 +1,10 @@
+{
+    "name": "gkapoor121212/sitedash_connector",
+    "type": "drupal-module",
+    "license": "GPL-2.0+",
+    "description": "Provides functionality to integrate with website dashboard.",
+    "require": {
+        "drupal/core": "^8.8 || ^9",
+        "drupal/simple_oauth": "^5.0"
+    }
+}
