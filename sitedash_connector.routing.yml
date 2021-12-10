@@ -1,8 +1,9 @@
 sitedash_connector.website_information:
-  path: '/website-information'
+  path: '/sitedash-connector/website-information'
   defaults:
     _controller: '\Drupal\sitedash_connector\Controller\WebsiteInformationController::data'
   requirements:
+    # Open, as access is controlled throug custom authentication.
     _access: 'TRUE'
   methods: [POST]
 

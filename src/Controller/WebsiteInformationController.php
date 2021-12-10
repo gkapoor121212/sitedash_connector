@@ -65,12 +65,29 @@ class WebsiteInformationController extends ControllerBase {
       if ($this->config('sitedash_connector.settings')->get('token') != $content['token']) {
         return new JsonResponse(['Invalid Token'], 403);
       }
-      return new JsonResponse($this->statusReport(), 200);
+      switch ($content['information']) {
+        case 'status_report':
+          $data = $this->statusReport();
+          break;
+
+        case 'logs':
+          $data = $this->getLogs();
+          break;
+
+        case 'content_statistics':
+          $data = $this->getContentStatistics();
+          break;
+
+      }
+
+      return new JsonResponse($data, 200);
     }
+
+    return new JsonResponse(['Invalid Request'], 200);
   }
 
   /**
-   * Responds to information GET requests.
+   * Provides status report information.
    *
    * @return array
    *   Returns the data from the status report page.
@@ -100,6 +117,28 @@ class WebsiteInformationController extends ControllerBase {
       $value = '';
     }
     return $data;
+  }
+
+  /**
+   * Provides logs information.
+   *
+   * @return array
+   *   Returns the website logs.
+   */
+  public function getLogs() {
+    // @todo Add logic to fetch log messages.
+    return [];
+  }
+
+  /**
+   * Provides content statistics.
+   *
+   * @return array
+   *   Returns the content statistics.
+   */
+  public function getContentStatistics() {
+    // @todo Add logic to fetch content statistics.
+    return [];
   }
 
 }

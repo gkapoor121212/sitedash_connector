@@ -34,7 +34,7 @@ class SitedashConnectorSettingsForm extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('sitedash_connector.settings');
 
-    $form['form_ids'] = [
+    $form['token'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Token'),
       '#default_value' => $config->get('token'),
@@ -44,14 +44,6 @@ class SitedashConnectorSettingsForm extends ConfigFormBase {
 
     $form['actions']['submit']['#attributes']['disabled'] = 'disabled';
     return parent::buildForm($form, $form_state);
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function submitForm(array &$form, FormStateInterface $form_state) {
-    parent::submitForm($form, $form_state);
-
   }
 
 }
