@@ -1,0 +1,17 @@
+sitedash_connector.website_information:
+  path: '/website-information'
+  defaults:
+    _controller: '\Drupal\sitedash_connector\Controller\WebsiteInformationController::data'
+  requirements:
+    _access: 'TRUE'
+  methods: [POST]
+
+sitedash_connector.settings:
+  path: '/admin/config/website-dashboard'
+  defaults:
+    _form: '\Drupal\sitedash_connector\Form\SitedashConnectorSettingsForm'
+    _title: 'Website Dashboard Settings'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: TRUE

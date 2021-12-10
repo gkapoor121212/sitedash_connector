@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Module installation hooks implementation.
+ */
+
+/**
+ * Implements hook_install().
+ *
+ * Generate a data access token.
+ */
+function sitedash_connector_install() {
+  // Generate a random value and save it as a token in configuration.
+  $config_factory = \Drupal::configFactory();
+  $config_factory->getEditable('sitedash_connector.settings')->set('token', sha1(microtime(TRUE) . random_int(10000, 90000)))->save();
+}
